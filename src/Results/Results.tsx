@@ -1,35 +1,37 @@
-import { useContext, useState, useEffect, useCallback } from 'react'
+import { IWeatherProps } from '../Constant/Constant'
+import { useContext } from 'react'
 import { CityContext } from '../Context/CityContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faCloudBolt } from '@fortawesome/free-solid-svg-icons'
-import { faCloudShowersWater } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
-import { faWind } from '@fortawesome/free-solid-svg-icons'
-import { faDroplet } from '@fortawesome/free-solid-svg-icons'
+import DayMeteoBloc from '../DayMeteoBloc/DayMeteoBloc'
 
 import './Results.css'
 
-export default function Results() {
-  const { cityData, fetchCityData } = useContext(CityContext);
+export default function Results({ getIconWeather } : IWeatherProps) {
+  const { cityData } = useContext(CityContext);
 
-  const firstFetch = useCallback(() => {
-    const cityName = "Paris";
-    fetchCityData(cityName);
-  }, []);
-
-  useEffect(() => {
-    firstFetch();
-  }, [firstFetch]);
+  const displayForecast = (): any => {
+    if (cityData?.fourNextDays !== undefined) {
+      return cityData.fourNextDays.map((element : any, i) => { 
+        if (i !== 0){
+          return (
+            <DayMeteoBloc 
+            key={i}
+            index={i}
+            weather={element.Day.IconPhrase}
+            temperature={element.Temperature}
+            getIconWeather={getIconWeather}
+            />
+          )
+        }
+      });
+    } else {
+      return (<span>No Forecast Data to display</span>);
+    }
+  }
 
   return (
     <main>
       <div id="details-meteo">
-        <ul>
-          <li><FontAwesomeIcon icon={faSun} /> { cityData?.cityWeather }</li>
-        </ul>
+        {displayForecast()}
       </div>
     </main>
   )

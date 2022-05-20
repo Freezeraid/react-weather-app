@@ -1,46 +1,35 @@
 import Form from '../Form/Form'
 import { CityContext } from '../Context/CityContext';
 import { useContext, useState, useEffect } from 'react';
+import { IWeatherProps } from '../Constant/Constant'
 import './Header.css'
 
 
-export default function Header() {
+export default function Header({ getIconWeather } : IWeatherProps) {
   const [ isCelsius, setIsCelsius ] = useState(true);
-  const { cityData } = useContext(CityContext);
+  const { cityData, getDateToDisplay } = useContext(CityContext);
   let dateAndHour = cityData?.cityTime;
 
   const dateHourHtmlElement = document.querySelector("#date-hour");
-
-  const getDateToDisplay = (dateToRender : string | void, firstRender : boolean = true) => {
-    let time : Date;
-    if (typeof cityData?.cityTime === "string" && firstRender) {
-      time = new Date(cityData?.cityTime);
-    } else if (typeof cityData?.cityTime === "string" && !firstRender && typeof dateToRender === "string") {
-      time = new Date(dateToRender);
-    } else {
-      return;
-    }
-
-    const day = time.getDate() < 10 ? `0${time.getDate()}` : `${time.getDate()}`;
-    const month = time.getMonth() < 10 ? `0${time.getMonth() + 1}` : `${time.getMonth() + 1}`;
-    const hours = time.getDate() < 10 ? `0${time.getHours()}` : `${time.getHours()}`;
-    const minutes = time.getMonth() < 10 ? `0${time.getMinutes()}` : `${time.getMinutes()}`;
-    const seconds = time.getSeconds() < 10 ? `0${time.getSeconds()}` : `${time.getSeconds()}`;
-
-    return `${day}/${month}/${time.getFullYear()} - ${hours}:${minutes}:${seconds}`;
-}
 
   const toggleIsCelsius = () => {
     setIsCelsius(prev => !prev);
   }
 
-  const displayTemp = () => {
-    if (isCelsius === true) {
-      return cityData?.cityTempMetric;
-    } else {
-      return cityData?.cityTempImperial;
+  const displayTemp = () : string => {
+    let temp : string;
+    if (cityData?.cityTempMetric && isCelsius) {
+      temp = cityData?.cityTempMetric;
+    } else if (cityData?.cityTempImperial && !isCelsius) {
+      temp = cityData?.cityTempImperial;
+    } else return "";
+
+    if (parseFloat(temp) % 1 === 0) {
+      temp = `${parseInt(temp)}.0°`;
     }
-  }
+
+    return temp;
+}
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,10 +39,13 @@ export default function Header() {
       } else {
         return;
       }
-  
+      
       newDate.setSeconds(newDate.getSeconds() + 1);
-  
-      const newDateDisplay : string | undefined = getDateToDisplay(String(newDate), false);
+
+      let newDateDisplay : string | undefined;
+      if (getDateToDisplay !== undefined) {
+        newDateDisplay = getDateToDisplay(String(newDate), false);
+      }
   
       if (dateHourHtmlElement instanceof HTMLElement && typeof newDateDisplay === "string") {
         dateHourHtmlElement.textContent = newDateDisplay;
@@ -69,9 +61,9 @@ export default function Header() {
       <div id="city-data">
         <span id="temperature-display" onClick={toggleIsCelsius}>{displayTemp()}</span>
         <div id="city-infos">
-          <h1>{ cityData?.cityName }</h1>
+          <h1>{getIconWeather(cityData?.cityWeather)} { cityData?.cityName }</h1>
           <h3>{ cityData?.countryName }</h3>
-          <h4 id="date-hour">{getDateToDisplay()}</h4>
+          <h4 id="date-hour">{ getDateToDisplay ? getDateToDisplay() : "" }</h4>
         </div>
       </div>
       <Form/>
