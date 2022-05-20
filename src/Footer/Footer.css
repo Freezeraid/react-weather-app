@@ -1,0 +1,11 @@
+footer {
+    display: block;
+    height: 5vh;
+    text-align: center;
+}
+
+footer > a {
+    color: white;
+    text-decoration: underline;
+    font-style: italic;
+}

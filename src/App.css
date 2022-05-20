@@ -1,0 +1,16 @@
+.App {
+    color: white;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    transition : background-image 0.4s ease-in-out;
+}
+
+.App.Day {
+    background-image: url("./Img/landscape_day.jpg")
+}
+
+.App.Night {
+    background-image: url("./Img/landscape_night.jpg")
+}

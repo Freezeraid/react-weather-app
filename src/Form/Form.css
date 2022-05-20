@@ -1,0 +1,47 @@
+form {
+    display: flex;
+    width: clamp(20%, 500px, 70%);
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(200, 200, 200, 0.1);
+    border: 1px solid white;
+    height: 15%;
+    border-radius: 10px;
+}
+
+form > svg.fa-magnifying-glass {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    height: 50%;
+    border-right: 0;
+}
+
+form > svg.fa-magnifying-glass > path {
+    fill: white;
+}
+
+form > input {
+    background-color: transparent;
+    color: white;
+    flex: 8;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: 100%;
+    border: 0;
+    outline: 0;
+}
+
+form > input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+form > input:-webkit-autofill,
+form > input:-webkit-autofill:hover,
+form > input:-webkit-autofill:focus,
+form > input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
+}

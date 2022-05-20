@@ -1,0 +1,31 @@
+header {
+    height: 40vh;
+    padding: 0% 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#city-data {
+    display: flex;
+    align-items: center;
+}
+
+#temperature-display {
+    margin-right: 3rem;
+    font-size: 15rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+#city-infos > h1 {
+    font-size: 4rem;
+}
+
+#city-infos > h3 {
+    font-size: 1.5rem;
+}
+
+#city-infos > h4 {
+    font-size: 1.25rem;
+}

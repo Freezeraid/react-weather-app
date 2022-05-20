@@ -1,0 +1,45 @@
+main {
+    padding: 4% 20%;
+    height: 55vh;
+}
+
+main > h1 {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 0.7%;
+}
+
+main > h3 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+main > #details-meteo {
+    display: flex;
+    margin: 0 auto;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 8px 3px #00000020;
+    border-radius: 10px;
+    padding: 5% 5%;
+}
+
+main > #details-meteo > * {
+    flex : 1
+}
+
+main > #details-meteo > span {
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: right;
+    border-left: 1px solid grey;
+}
+
+main > #details-meteo > ul {
+    margin: auto auto;
+    list-style-type: none;
+    width: 50%;
+    font-size: 1.3rem;
+}
