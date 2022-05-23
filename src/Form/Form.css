@@ -54,10 +54,10 @@ form > input:-webkit-autofill:active {
 
 @media screen and (max-width: 550px) {
     form > svg.fa-magnifying-glass {
-        width: 25%;
+        width: 35%;
     }
     
     form > input {
-        width: 75%;
+        width: 65%;
     }
 }
