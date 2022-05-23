@@ -45,3 +45,19 @@ form > input:-webkit-autofill:active {
     -webkit-transition-delay: 9999s;
     transition-delay: 9999s;
 }
+
+@media screen and (min-width: 551px) and (max-width: 850px) {
+    form > input {
+        flex: 3;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    form > svg.fa-magnifying-glass {
+        width: 25%;
+    }
+    
+    form > input {
+        width: 75%;
+    }
+}

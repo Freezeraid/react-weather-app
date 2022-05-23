@@ -60,8 +60,6 @@ export const CityContextProvider = ({ children }: {children : any}) => {
         const resFetchForecast = await Axios(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${apiKey}&metric=true`);
         const dataForecast : [] = resFetchForecast.data.DailyForecasts;
 
-        console.log(dataForecast);
-
         const cityName = dataCity.EnglishName;
         const countryName = dataCity.Country.EnglishName;
         const stateName = dataCity.AdministrativeArea.EnglishName;
@@ -84,7 +82,7 @@ export const CityContextProvider = ({ children }: {children : any}) => {
         };
 
         // const cityWeatherState = {
-        //     cityIsDayTime: true,
+        //     cityIsDayTime: false,
         //     cityName: "Paris",
         //     cityTempImperial: "73°",
         //     cityTempMetric: "23°",
@@ -92,7 +90,71 @@ export const CityContextProvider = ({ children }: {children : any}) => {
         //     cityWeather: "Mostly sunny",
         //     countryName: "France",
         //     stateName: "Ville de Paris",
-        //     fourNextDays: []
+        //     fourNextDays: [
+        //         {
+        //             weather: "sunny",
+        //             Temperature : {
+        //                 Minimum:{
+        //                     Value: 24
+        //                 },
+        //                 Maximum:{
+        //                     Value: 32
+        //                 },
+        //             }
+        //         },
+        //         {
+        //             Day : {
+        //                 IconPhrase :  "sun"
+        //             },
+        //             Temperature : {
+        //                 Minimum:{
+        //                     Value: 24.2
+        //                 },
+        //                 Maximum:{
+        //                     Value: 32.6
+        //                 },
+        //             }
+        //         },
+        //         {
+        //             Day : {
+        //                 IconPhrase :  "snow"
+        //             },
+        //             Temperature : {
+        //                 Minimum:{
+        //                     Value: 16.8
+        //                 },
+        //                 Maximum:{
+        //                     Value: 28.5
+        //                 },
+        //             }
+        //         },
+        //         {
+        //             Day : {
+        //                 IconPhrase : "cloud"
+        //             },
+        //             Temperature : {
+        //                 Minimum:{
+        //                     Value: 17
+        //                 },
+        //                 Maximum:{
+        //                     Value: 19.6
+        //                 },
+        //             }
+        //         }
+        //         ,{
+        //             Day : {
+        //                 IconPhrase : "thunder"
+        //             },
+        //             Temperature : {
+        //                 Minimum:{
+        //                     Value: 18
+        //                 },
+        //                 Maximum:{
+        //                     Value: 24.2
+        //                 },
+        //             }
+        //         }
+        //     ]
         // }
 
         dispatch(cityWeatherState);

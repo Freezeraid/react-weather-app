@@ -9,7 +9,7 @@ import { faSun } from '@fortawesome/free-solid-svg-icons'
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons'
 import { faCloud } from '@fortawesome/free-solid-svg-icons'
 import { faCloudBolt } from '@fortawesome/free-solid-svg-icons'
-import { faCloudShowersWater } from '@fortawesome/free-solid-svg-icons'
+import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
       weatherIcon = <FontAwesomeIcon icon={faCloudBolt} />;
     }
     if (weatherText.toLowerCase().includes("rain") || weatherText.toLowerCase().includes("shower")) {
-      weatherIcon = <FontAwesomeIcon icon={faCloudShowersWater} />;
+      weatherIcon = <FontAwesomeIcon icon={faCloudShowersHeavy} />;
     }
 
     return weatherIcon;

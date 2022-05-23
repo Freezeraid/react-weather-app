@@ -1,9 +1,9 @@
 .day-meteo-bloc {
     height: 100%;
     padding: 2% 0;
-    background-color: rgba(8, 55, 156, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    border: 1px solid rgba(100, 150, 255, 1);
+    border: 1px solid white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,5 +20,31 @@
 }
 
 .day-meteo-bloc > .temp-day {
-    font-size: 2.5rem;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 1500px) {    
+    .day-meteo-bloc > .weather-day {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .day-meteo-bloc {
+        padding: 10% 5%;
+    }
+
+    .day-meteo-bloc > .date-day {
+        font-size: 2rem;
+    }
+    
+    .day-meteo-bloc > .weather-day {
+        text-align: center;
+        font-size: 4rem;
+        margin: 2rem 0;
+    }
+    
+    .day-meteo-bloc > .temp-day {
+        font-size: 2.5rem;
+    }
 }

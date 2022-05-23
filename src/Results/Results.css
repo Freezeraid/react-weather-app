@@ -1,6 +1,5 @@
 main {
     padding: 4% 20%;
-    height: 55vh;
 }
 
 main > h1 {
@@ -21,6 +20,7 @@ main > #details-meteo {
     margin: 0 auto;
     align-items: center;
     gap: 3%;
+    flex-wrap: wrap;
 }
 
 main > #details-meteo > * {
@@ -39,4 +39,39 @@ main > #details-meteo > ul {
     list-style-type: none;
     width: 50%;
     font-size: 1.3rem;
+}
+
+@media screen and (min-width: 1500px) {
+
+    main {
+        height: 55vh;
+    }
+}
+
+@media screen and (min-width: 851px) and (max-width: 1500px) {
+
+    main {
+        min-height: 55vh;
+    }
+
+    main > #details-meteo {
+        gap: 5%;
+    }
+
+    main > #details-meteo > * {
+        flex : 40%;
+        margin: 2.5% 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    main > #details-meteo {
+        gap: 5%;
+    }
+
+    main > #details-meteo > * {
+        flex : 80%;
+        margin: 5% 0;
+    }
 }

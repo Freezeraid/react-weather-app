@@ -8,3 +8,7 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}

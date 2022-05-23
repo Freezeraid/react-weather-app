@@ -24,7 +24,7 @@ export default function Results({ getIconWeather } : IWeatherProps) {
         }
       });
     } else {
-      return (<span>No Forecast Data to display</span>);
+      return (<span style={{ textAlign: "center" }}>No more API calls for today !</span>);
     }
   }
 

@@ -1,6 +1,5 @@
 .App {
     color: white;
-    max-height: 100vh;
     display: flex;
     flex-direction: column;
     background-size: cover;
@@ -13,4 +12,10 @@
 
 .App.Night {
     background-image: url("./Img/landscape_night.jpg")
+}
+
+@media screen and (min-width: 1500px) {
+    .App {
+        max-height: 100vh;
+    }
 }

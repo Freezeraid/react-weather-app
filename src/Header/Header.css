@@ -35,3 +35,26 @@ header {
 #city-infos > h4 {
     font-size: 1.25rem;
 }
+
+@media screen and (max-width: 1500px) {
+    #city-data {
+        flex-direction: column;
+    }
+
+    #temperature-display {
+        margin-right: 0;
+        font-size: 9rem;
+    }
+    
+    #city-infos {
+        border-left: 0;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    header {
+        margin: 7.5% 0;
+        flex-direction: column-reverse;
+    }
+}

@@ -9,3 +9,9 @@ footer > a {
     text-decoration: underline;
     font-style: italic;
 }
+
+@media screen and (max-width: 850px) {
+    footer {
+        font-size: 1.2rem;
+    }
+}
