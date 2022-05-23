@@ -38,13 +38,10 @@ export const CityContextProvider = ({ children }: {children : any}) => {
           return "";
         }
     
-        const day = time.getDate() < 10 ? `0${time.getDate()}` : `${time.getDate()}`;
-        const month = time.getMonth() < 10 ? `0${time.getMonth() + 1}` : `${time.getMonth() + 1}`;
-        const hours = time.getHours() < 10 ? `0${time.getHours()}` : `${time.getHours()}`;
-        const minutes = time.getMinutes() < 10 ? `0${time.getMinutes()}` : `${time.getMinutes()}`;
-        const seconds = time.getSeconds() < 10 ? `0${time.getSeconds()}` : `${time.getSeconds()}`;
-    
-        return `${day}/${month}/${time.getFullYear()} - ${hours}:${minutes}:${seconds}`;
+        const day = time.getUTCDate() < 10 ? `0${time.getUTCDate()}` : `${time.getUTCDate()}`;
+        const month = time.getUTCMonth() < 10 ? `0${time.getUTCMonth() + 1}` : `${time.getUTCMonth() + 1}`;
+   
+        return `${day}/${month}/${time.getFullYear()}`;
     }
 
     const fetchCityData = async(nameCity : string) : Promise<any> => {
