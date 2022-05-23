@@ -55,7 +55,7 @@ header {
 @media screen and (max-width: 850px) {
     header {
         margin: 25% 0 10% 0;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     #temperature-display {
