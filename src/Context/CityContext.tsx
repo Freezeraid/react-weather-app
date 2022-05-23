@@ -47,14 +47,14 @@ export const CityContextProvider = ({ children }: {children : any}) => {
     const fetchCityData = async(nameCity : string) : Promise<any> => {
         const apiKey = process.env.REACT_APP_API_KEY;
 
-        const resFetchCity = await Axios(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${nameCity}`);
+        const resFetchCity = await Axios(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${nameCity}`);
         const dataCity = resFetchCity.data[0];
         const cityKey = dataCity.Key;
 
-        const resFetchWeather = await Axios(`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apiKey}`);
+        const resFetchWeather = await Axios(`https://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apiKey}`);
         const dataWeather = resFetchWeather.data[0];
 
-        const resFetchForecast = await Axios(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${apiKey}&metric=true`);
+        const resFetchForecast = await Axios(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${apiKey}&metric=true`);
         const dataForecast : [] = resFetchForecast.data.DailyForecasts;
 
         const cityName = dataCity.EnglishName;
