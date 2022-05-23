@@ -8,9 +8,6 @@ import './Header.css'
 export default function Header({ getIconWeather } : IWeatherProps) {
   const [ isCelsius, setIsCelsius ] = useState(true);
   const { cityData, getDateToDisplay } = useContext(CityContext);
-  let dateAndHour = cityData?.cityTime;
-
-  const dateHourHtmlElement = document.querySelector("#date-hour");
 
   const toggleIsCelsius = () => {
     setIsCelsius(prev => !prev);
@@ -29,32 +26,7 @@ export default function Header({ getIconWeather } : IWeatherProps) {
     }
 
     return temp;
-}
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      let newDate : Date;
-      if (typeof dateAndHour === "string") {
-        newDate = new Date(dateAndHour);
-      } else {
-        return;
-      }
-      
-      newDate.setSeconds(newDate.getSeconds() + 1);
-
-      let newDateDisplay : string | undefined;
-      if (getDateToDisplay !== undefined) {
-        newDateDisplay = getDateToDisplay(String(newDate), false);
-      }
-  
-      if (dateHourHtmlElement instanceof HTMLElement && typeof newDateDisplay === "string") {
-        dateHourHtmlElement.textContent = newDateDisplay;
-      }
-  
-      dateAndHour = String(newDate);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  }
 
   return (
     <header>
