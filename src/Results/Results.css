@@ -1,5 +1,6 @@
 main {
     padding: 4% 20%;
+    min-height: 55vh;
 }
 
 main > h1 {
@@ -49,10 +50,6 @@ main > #details-meteo > ul {
 }
 
 @media screen and (min-width: 851px) and (max-width: 1500px) {
-
-    main {
-        min-height: 55vh;
-    }
 
     main > #details-meteo {
         gap: 5%;

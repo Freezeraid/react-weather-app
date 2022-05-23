@@ -12,6 +12,10 @@ footer > a {
 
 @media screen and (max-width: 850px) {
     footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
         font-size: 1.2rem;
     }
 }

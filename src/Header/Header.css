@@ -54,7 +54,15 @@ header {
 
 @media screen and (max-width: 850px) {
     header {
-        margin: 7.5% 0;
+        margin: 25% 0 10% 0;
         flex-direction: column-reverse;
+    }
+
+    #temperature-display {
+        font-size: 8rem;
+    }
+
+    #city-infos > h1 {
+        font-size: 3rem;
     }
 }

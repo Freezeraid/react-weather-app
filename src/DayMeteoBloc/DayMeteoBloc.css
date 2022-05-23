@@ -35,16 +35,16 @@
     }
 
     .day-meteo-bloc > .date-day {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .day-meteo-bloc > .weather-day {
         text-align: center;
-        font-size: 4rem;
+        font-size: 3.5rem;
         margin: 2rem 0;
     }
     
     .day-meteo-bloc > .temp-day {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 }
