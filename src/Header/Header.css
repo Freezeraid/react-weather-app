@@ -54,6 +54,7 @@ header {
 
 @media screen and (max-width: 850px) {
     header {
+        height: 50vh;
         margin: 25% 0 10% 0;
         flex-direction: column;
     }
